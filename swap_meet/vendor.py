@@ -7,11 +7,11 @@ class Vendor:
         return item
 
     def remove(self, item):
-        try: 
-            self.inventory.remove(item)
-        except:
+        if item not in self.inventory:
             return False
-        return item
+        else:
+            self.inventory.remove(item)
+            return item
 
     def get_by_category(self, category):
         filtered_list = []
