@@ -20,6 +20,15 @@ class Vendor:
                 filtered_list.append(item)
         return filtered_list
 
+    def swap_items(self, other, my_item, their_item):
+        self.inventory.remove(my_item)
+        self.inventory.append(their_item)
+
+        other.inventory.remove(their_item)
+        other.inventory.append(my_item)
+        
+
+
     def swap_first_item(self, other_vendor):
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
             return False
@@ -72,11 +81,12 @@ class Vendor:
         if their_best_item == None or my_best_item == None:
             return False
         else:
-            self.inventory.remove(my_best_item)
-            self.inventory.append(their_best_item)
+            self.swap_items(other, my_best_item, their_best_item)
+            # self.inventory.remove(my_best_item)
+            # self.inventory.append(their_best_item)
 
-            other.inventory.remove(their_best_item)
-            other.inventory.append(my_best_item)
+            # other.inventory.remove(their_best_item)
+            # other.inventory.append(my_best_item)
 
             return True
 
