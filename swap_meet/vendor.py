@@ -56,15 +56,18 @@ class Vendor:
         their_highest = 0
         their_best_item = None
 
-        for item in self.inventory:
-            if item.category == their_priority and item.condition > my_highest:
-                my_best_item = item
-                my_highest = item.condition
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
 
-        for item in other.inventory:
-            if item.category == my_priority and item.condition >their_highest:
-                their_best_item = item
-                their_highest = item.condition
+        # for item in self.inventory:
+        #     if item.category == their_priority and item.condition > my_highest:
+        #         my_best_item = item
+        #         my_highest = item.condition
+
+        # for item in other.inventory:
+        #     if item.category == my_priority and item.condition >their_highest:
+        #         their_best_item = item
+        #         their_highest = item.condition
 
         if their_best_item == None or my_best_item == None:
             return False
