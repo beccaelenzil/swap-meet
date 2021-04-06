@@ -8,3 +8,5 @@ class Item:
 
     def longest_description(self):
         return "implemented in child"
+
+

@@ -1,20 +1,44 @@
-class Vendor:
-    def __init__(self, name="vendor1",inventory=None):
-        if inventory == None:
-            self.inventory = []
-        else:
-            self.inventory = inventory
-        
-        self.name = name
+class Currency:
+    def __init__(self, value, unit="dollar"):
+        self.value = value
+        self.unit = unit
+    
+    def converter(self, other_unit):
+        pass
 
-ruthie = Vendor(inventory=["book1", "book2"])
-print("ruthie's name", ruthie.name)
+    def __lt__(self, other):
+        if self.value < other.value:
+            return True
+        else: 
+            return False
 
-glenda = Vendor(inventory=["book1", "book2"])
-print("glenda's inventory", glenda.inventory)
-print("glenda's name", glenda.name)
+    def str(self):
+        return f"{self.value} {self.unit}s"
 
-glenda.name = "Glenda"
 
-print("glenda's name", glenda.name)
-print("ruthie's name", ruthie.name)
+five = Currency(5)
+one = Currency(1)
+
+print(one < five)
+print(str(five))
+
+
+# class Item:
+#     def __init__(self, condition=None, category=''):
+#         self.category = category
+#         self.condition = condition
+
+# class Clothing(Item):
+#     def __init__(self, condition=None, category='clothing'):
+#         super().__init__(category=category)
+#         # self.category = category
+#         # self.condition = condition
+#         #pass
+    
+
+
+# shirt = Clothing(condition=5)
+# print(shirt.condition)
+# print(shirt.category)
+    
+

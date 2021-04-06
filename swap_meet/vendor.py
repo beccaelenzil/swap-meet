@@ -26,8 +26,6 @@ class Vendor:
 
         other.inventory.remove(their_item)
         other.inventory.append(my_item)
-        
-
 
     def swap_first_item(self, other_vendor):
         if len(self.inventory) == 0 or len(other_vendor.inventory) == 0:
@@ -59,14 +57,11 @@ class Vendor:
 
     def swap_best_by_category(self, other, my_priority, their_priority):
 
-        my_highest = 0
-        my_best_item = None
+        # my_highest = 0
+        # my_best_item = None
 
-        their_highest = 0
-        their_best_item = None
-
-        my_best_item = self.get_best_by_category(their_priority)
-        their_best_item = other.get_best_by_category(my_priority)
+        # their_highest = 0
+        # their_best_item = None
 
         # for item in self.inventory:
         #     if item.category == their_priority and item.condition > my_highest:
@@ -77,6 +72,9 @@ class Vendor:
         #     if item.category == my_priority and item.condition >their_highest:
         #         their_best_item = item
         #         their_highest = item.condition
+
+        my_best_item = self.get_best_by_category(their_priority)
+        their_best_item = other.get_best_by_category(my_priority)
 
         if their_best_item == None or my_best_item == None:
             return False
